@@ -1,9 +1,10 @@
 pipeline {
     agent {
-        docker 'maven:3.9.0'
+        agnet any {
+            image 'maven:3.9.0'
+        }
     }
 
-    }
     stages {
         stage('Build') {
             steps {
@@ -27,3 +28,4 @@ pipeline {
         }
     }
 }
+
