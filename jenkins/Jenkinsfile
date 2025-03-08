@@ -1,14 +1,18 @@
 pipeline {
     agent any
+
+    environment {
+        GIT_CREDENTIALS_ID = 'your-credentials-id' // Use the correct Jenkins credentials ID
+    }
+
     stages {
-        stage('Checkout SCM') {
+        stage('Checkout Code') {
             steps {
-                withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]) {
-                    sh 'git clone https://$GITHUB_TOKEN@github.com/Shivanipillalolu/java-maven-app.git'
+                withCredentials([usernamePassword(credentialsId: env.GIT_CREDENTIALS_ID, usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
+                    sh 'git clone https://$GIT_USER:$GIT_TOKEN@github.com/Shivanipillalolu/your-repo.git'
                 }
             }
         }
     }
 }
-
 
