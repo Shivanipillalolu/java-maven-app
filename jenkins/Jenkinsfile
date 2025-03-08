@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_CREDENTIALS_ID = 'your-credentials-id' // Use the correct Jenkins credentials ID
+        GIT_CREDENTIALS_ID = 'github-token-123' // Use the correct Jenkins credentials ID
     }
 
     stages {
